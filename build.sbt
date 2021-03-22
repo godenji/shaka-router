@@ -4,7 +4,7 @@ lazy val root = project
   .settings(
     organization := "org.getshaka",
     name := "shaka-router",
-    version := "0.1.0",
+    version := "0.1.1",
     versionScheme := Some("early-semver"),
 
     scalaVersion := "3.0.0-RC1",
@@ -14,7 +14,7 @@ lazy val root = project
     ),
 
     libraryDependencies ++= Seq(
-      "org.getshaka" %%% "shaka" % "0.1.0"
+      "org.getshaka" %%% "shaka" % "0.2.0"
     ),
 
     // publishing settings
