@@ -27,8 +27,8 @@ class Router(root: String = "/") extends Component:
     this
 
   override val template: ComponentBuilder =
-    Router.PathState.bind:
-      newPath => routes.find(_.regex.matches(newPath)) match
+    Router.PathState.bind(newPath =>
+      routes.find(_.regex.matches(newPath)) match
         case Some(Route(regex, component, paramStates)) =>
           component.render
           for (param, paramState) <- regex.findAllIn(newPath).zip(paramStates) do
@@ -42,6 +42,7 @@ class Router(root: String = "/") extends Component:
               Router.Window.scrollTo(0, 0)
         case None =>
           if catchAll != null then catchAll.render
+    )
 
 object Router:
   private val Window = js.Dynamic.global.window

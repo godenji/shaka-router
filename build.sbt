@@ -4,17 +4,15 @@ lazy val root = project
   .settings(
     organization := "org.getshaka",
     name := "shaka-router",
-    version := "0.1.2-SNAPSHOT",
+    version := "0.1.2",
     versionScheme := Some("early-semver"),
 
-    scalaVersion := "3.0.0-RC1",
-    scalacOptions ++= Seq(
-      "-Ycheck-init",
-      "-Yindent-colons"
-    ),
+    scalaVersion := "3.0.0-RC3",
+    // todo remove when fixed: https://github.com/lampepfl/dotty/issues/11943
+    Compile / doc / sources := Seq(),
 
     libraryDependencies ++= Seq(
-      "org.getshaka" %%% "shaka" % "0.2.0"
+      "org.getshaka" %%% "shaka" % "0.2.1"
     ),
 
     // publishing settings
@@ -34,7 +32,7 @@ lazy val root = project
       )
     ),
     publishMavenStyle := true,
-    publishArtifact.in(Test) := false,
+    Test / publishArtifact := false,
     pomIncludeRepository := { _ => false },
     publishTo := {
       val nexus = "https://s01.oss.sonatype.org/"
