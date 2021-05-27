@@ -32,7 +32,7 @@ class Router(root: String = "/") extends Component:
         case Some(Route(regex, component, paramStates)) =>
           component.render
           for (param, paramState) <- regex.findAllIn(newPath).zip(paramStates) do
-              paramState.value = param
+              paramState.setValue(param)
           newPath match
             case Router.HashRegex(hashId) =>
               val elementToScroll = Router.Document.getElementById(hashId).asInstanceOf[Element|Null]
@@ -70,7 +70,7 @@ object Router:
     else uri
       
   private def updatePathState(): Unit =
-    PathState.value = currentPath
+    PathState.setValue(currentPath)
       
   private def handleClick(e: MouseEvent): Unit =
     if e.defaultPrevented
