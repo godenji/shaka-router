@@ -7,12 +7,10 @@ lazy val root = project
     version := "0.2.1-SNAPSHOT",
     versionScheme := Some("early-semver"),
 
-    scalaVersion := "3.0.0",
-    // todo remove when fixed: https://github.com/lampepfl/dotty/issues/11943
-    Compile / doc / sources := Seq(),
+    scalaVersion := "3.0.1",
 
     libraryDependencies ++= Seq(
-      "org.getshaka" %%% "shaka" % "0.3.0"
+      "org.getshaka" %%% "shaka" % "0.3.1"
     ),
 
     // publishing settings
