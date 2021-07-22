@@ -6,11 +6,10 @@ lazy val root = project
     name := "shaka-router",
     version := "0.2.2-SNAPSHOT",
     versionScheme := Some("early-semver"),
-
     scalaVersion := "3.0.1",
-
     libraryDependencies ++= Seq(
-      "org.getshaka" %%% "shaka" % "0.3.1"
+      "org.getshaka" %%% "shaka" % "0.3.1-SNAPSHOT",
+      "org.scala-js" %%% "scalajs-dom" % "1.2.0-SNAPSHOT"
     ),
 
     // publishing settings
